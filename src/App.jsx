@@ -16,17 +16,17 @@ function App() {
 
   const handleAdd = (contact) => {
     const newContact = { ...contact, id: Date.now() };
-    setContacts([...contacts, newContact]); // Optimistic
+    setContacts([...contacts, newContact]); 
     addContact(newContact);
   };
 
   const handleDelete = (id) => {
-    setContacts(contacts.filter(c => c.id !== id)); // Optimistic
+    setContacts(contacts.filter(c => c.id !== id)); 
     deleteContact(id);
   };
 
   return (
-    <div>
+    <div className="bod">
       <h1>Contacts Manager</h1>
       <ContactForm onAdd={handleAdd} />
       {loading ? <p>Loading...</p> : <ContactList contacts={contacts} onDelete={handleDelete} />}
